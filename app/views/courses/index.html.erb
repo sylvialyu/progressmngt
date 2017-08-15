@@ -4,7 +4,7 @@
 
   <div class="row">
     <% @courses.each do |course| %>
-      <div class="col-md-3">
+      <div class="col-md-3 course">
         <%= link_to course_path(course) do %>
           <% if course.image.present? %>
             <%= image_tag(course.image.thumb.url, class: "image-thumbnail") %>
