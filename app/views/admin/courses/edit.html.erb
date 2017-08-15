@@ -1,0 +1,16 @@
+<h2>Edit Course</h2>
+
+<%= simple_form_for [:admin, @course] do |f| %>
+
+<%= f.input :title %>
+<%= f.input :description %>
+
+<% if @course.image.present? %>
+  <span>目前课程图片</span><br>
+  <%= image_tag(@course.image.small.url) %>
+<% end %>
+<%= f.input :image, as: :file %>
+
+<%= f.submit "Submit", data: {disable_with: "Submitting"} %>
+
+<% end %>

@@ -15,11 +15,17 @@
   <tbody>
     <% @courses.each do |course| %>
       <tr>
-        <td>#</td>
+        <td>
+          <% if course.image.small.present? %>
+            <%= image_tag(course.image.small.url) %>
+          <% else %>
+            <%= image_tag("http://placehold.it/80x80&text=No Pic") %>
+          <% end %>
+        </td>
         <td><%= link_to(course.title, course_path(course)) %></td>
         <td>
           <%= link_to("Edit", edit_admin_course_path(course), class: "btn btn-sm btn-warning") %>
-          <%= link_to("Delete", admin_courses_path(course), method: :delete, class: "btn btn-sm btn-danger", data: {confirm: "Are you sure?"}) %>
+          <%= link_to("Delete", admin_course_path(course), method: :delete, class: "btn btn-sm btn-danger", data: {confirm: "Are you sure?"}) %>
         </td>
       </tr>
     <% end %>
