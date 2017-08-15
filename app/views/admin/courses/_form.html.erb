@@ -1,0 +1,30 @@
+<div class="group">
+  <%= f.input :title, class: "form-control" %>
+</div>
+
+<div class="group">
+  <%= f.input :description %>
+</div>
+
+<div class="group">
+  <%= f.input :image, as: :file, class: "form-control" %>
+</div>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Content</th>
+      <th>Completed?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tasks.each do |task| %>
+      <tr>
+        <td><%= task.content %></td>
+        <td><%= task.completed %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= f.submit "Submit", data: {disable_with: "Submitting"} %>

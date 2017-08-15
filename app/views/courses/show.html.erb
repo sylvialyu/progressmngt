@@ -1,20 +1,39 @@
-<h2 class="text-center"> <%= @course.title %> </h2>
+<div class="col-centered col-md-10">
 
-<div class="text-center">
-  <p><%= @course.description %></p>
-</div>
+  <div class="row">
+    <div class="col-md-6">
+      <% if @course.image.present? %>
+        <%= image_tag(@course.image.thumb.url) %>
+      <% end %>
+    </div>
+    <div class="col-md-6">
+      <h2> <%= @course.title %> </h2>
+      <p><%= @course.description %></p>
+    </div>
+  </div>
 
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Times</th>
-      <th>Completed?</th>
-    </tr>
-  </thead>
-  <tbody>
+
+  <table class="table table-bordered">
+    <thead>
       <tr>
-        <td>#</td>
-        <td>#</td>
+        <th>Times</th>
+        <th>Completed?</th>
       </tr>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @tasks.each do |task| %>
+        <tr>
+          <td><%= task.content %></td>
+          <td>
+            <% if !task.completed? %>
+              <%= link_to("Yes", finish_course_task_path(@course, task), method: :post, class: "btn btn-sm btn-primary") %>
+            <% else %>
+              <p>Yay!! Congrats!!</p>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>

@@ -18,6 +18,12 @@
 @import 'bootstrap';
 
 
+// 让内容居中
+ .col-centered {
+  float: none;
+  margin: 0 auto;
+}
+
 .thumbnail {
     position: relative;
 }

@@ -5,9 +5,17 @@ Rails.application.routes.draw do
 root 'courses#index'
 
 namespace :admin do
-  resources :courses
+  resources :courses do
+    resources :tasks
+  end
 end
 
-resources :courses
+resources :courses do
+  resources :tasks do
+    member do
+      post :finish
+    end
+  end
+end
 
 end

@@ -2,10 +2,6 @@
 
 <%= simple_form_for [:admin, @course] do |f| %>
 
-<%= f.input :title %>
-<%= f.input :description %>
-<%= f.input :image, as: :file %>
-
-<%= f.submit "Submit", data: {disable_with: "Submitting"} %>
+<%= render :partial => "form", :locals => { :f => f } %>
 
 <% end %>
