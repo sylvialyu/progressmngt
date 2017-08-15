@@ -1,4 +1,6 @@
 class Admin::TasksController < ApplicationController
+  before_action :authenticate_user!
+  before_action :require_admin!
 
   def index
     @course = Course.find(params[:course_id])
