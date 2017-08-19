@@ -19,4 +19,5 @@ resources :courses do
   end
 end
 
+
 end

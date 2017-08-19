@@ -1,0 +1,25 @@
+<h1>Tasks - <%= @course.title %></h1>
+
+<div class="pull-right" style="padding-bottom: 20px;">
+  <%= link_to("Create a New Task", new_course_task_path(@course), class: "btn btn-primary btn-sm")%>
+</div>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Content</th>
+      <th>Options</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tasks.each do |task| %>
+      <tr>
+        <td><%= task.content %></td>
+        <td>
+          <%= link_to("Edit", edit_course_task_path(@course, task), class: "btn btn-primary btn-xs") %>
+          <%= link_to("Delete", course_task_path(@course, task), method: :delete, class: "btn btn-danger btn-xs", data: {confirm: "Are you sure?"}) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,7 @@
+<h2>New Task - <%= @course.title %></h2>
+
+<%= simple_form_for [@course, @task] do |f| %>
+
+<%= render :partial => "form", :locals => { :f => f } %>
+
+<% end %>

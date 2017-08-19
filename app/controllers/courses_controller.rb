@@ -6,7 +6,7 @@ class CoursesController < ApplicationController
 
   def show
     @course = Course.find(params[:id])
-    @tasks = @course.tasks
+    @tasks = current_user.tasks
   end
 
 

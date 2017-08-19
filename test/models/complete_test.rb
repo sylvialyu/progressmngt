@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class TaskRelationshipTest < ActiveSupport::TestCase
+class CompleteTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
