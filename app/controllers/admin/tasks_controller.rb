@@ -32,6 +32,7 @@ class Admin::TasksController < ApplicationController
   def update
     @course = Course.find(params[:course_id])
     @task = Task.find(params[:id])
+    @task.course = @course
     if @task.update(task_params)
       redirect_to admin_course_tasks_path(@course)
       flash[:notice] = "Task updated!"

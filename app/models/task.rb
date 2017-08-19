@@ -7,4 +7,10 @@ class Task < ApplicationRecord
     self.save
   end
 
+  def unfinish!
+    self.completed = false
+    self.save
+  end
+
+
 end

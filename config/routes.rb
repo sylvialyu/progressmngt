@@ -14,6 +14,7 @@ resources :courses do
   resources :tasks do
     member do
       post :finish
+      post :unfinish
     end
   end
 end

@@ -28,7 +28,7 @@
             <% if !task.completed? %>
               <%= link_to("Yes", finish_course_task_path(@course, task), method: :post, class: "btn btn-sm btn-primary") %>
             <% else %>
-              <p>Yay!! Congrats!!</p>
+              <p>Yay!! Congrats!! <%= link_to("Undo", unfinish_course_task_path(@course, task), method: :post, class: "btn btn-sm btn-danger")%></p>
             <% end %>
           </td>
         </tr>
