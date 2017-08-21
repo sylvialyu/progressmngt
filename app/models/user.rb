@@ -8,8 +8,12 @@ class User < ApplicationRecord
     self.role == "admin"
   end
 
-has_many :tasks
-has_many :courses
+  has_many :tasks
+  has_many :courses
+
+  def display_name
+    self.email.split("@").first
+  end
 
 
 end

@@ -18,7 +18,7 @@ class Admin::CoursesController < ApplicationController
     @tasks = @course.tasks
 
     if @course.save
-      redirect_to admin_courses_path, notice: "Course created!"
+      redirect_to admin_user_path(@course.user), notice: "Course created!"
     else
       render :new
     end
@@ -35,7 +35,7 @@ class Admin::CoursesController < ApplicationController
     @tasks = @course.tasks
 
     if @course.update(course_params)
-      redirect_to admin_courses_path, notice: "Course updated!"
+      redirect_to admin_user_path(@course.user), notice: "Course updated!"
     else
       render :edit
     end
@@ -44,7 +44,7 @@ class Admin::CoursesController < ApplicationController
   def destroy
     @course = Course.find(params[:id])
     @course.destroy
-    redirect_to admin_courses_path, alert: "Course deleted!"
+    redirect_to admin_user_path(@course.user), alert: "Course deleted!"
   end
 
   private

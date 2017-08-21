@@ -19,7 +19,7 @@
     <% @courses.each do |course| %>
       <tr>
         <td><%= course.user_id %></td>
-        <td><%= render_user_name(course.user_id) %></td>
+        <td><%= course.user.display_name %></td>
         <td>
           <%= link_to edit_admin_course_path(course) do %>
             <% if course.image.present? %>

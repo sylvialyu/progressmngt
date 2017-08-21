@@ -8,6 +8,7 @@ namespace :admin do
   resources :courses do
     resources :tasks
   end
+  resources :users
 end
 
 resources :courses do

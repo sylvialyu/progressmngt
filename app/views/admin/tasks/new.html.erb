@@ -1,4 +1,4 @@
-<h2>New Task for <%= render_user_name(@course.user_id) %> - <%= @course.title %></h2>
+<h2>New Task for <%= @course.user.display_name %> - <%= @course.title %></h2>
 
 <%= simple_form_for [:admin, @course, @task] do |f| %>
 
