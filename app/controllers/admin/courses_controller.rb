@@ -13,6 +13,7 @@ class Admin::CoursesController < ApplicationController
 
   def create
     @course = Course.new(course_params)
+    @course.user = current_user
     @tasks = @course.tasks
 
     if @course.save
@@ -29,6 +30,7 @@ class Admin::CoursesController < ApplicationController
 
   def update
     @course = Course.find(params[:id])
+    @course.user = current_user
     @tasks = @course.tasks
 
     if @course.update(course_params)
@@ -47,7 +49,7 @@ class Admin::CoursesController < ApplicationController
   private
 
   def course_params
-    params.require(:course).permit(:title, :description, :image)
+    params.require(:course).permit(:title, :description, :image, :user_id)
   end
 
 end

@@ -16,6 +16,7 @@ class Admin::TasksController < ApplicationController
     @course = Course.find(params[:course_id])
     @task = Task.new(task_params)
     @task.course = @course
+    @task.user = current_user
     if @task.save
       redirect_to admin_course_tasks_path(@course)
       flash[:notice] = "Task created!"
@@ -33,6 +34,7 @@ class Admin::TasksController < ApplicationController
     @course = Course.find(params[:course_id])
     @task = Task.find(params[:id])
     @task.course = @course
+    @task.user = current_user
     if @task.update(task_params)
       redirect_to admin_course_tasks_path(@course)
       flash[:notice] = "Task updated!"
@@ -53,7 +55,7 @@ class Admin::TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:content, :completed, :user_id)
+    params.require(:task).permit(:content, :completed, :user_id, :course_id)
   end
 
 

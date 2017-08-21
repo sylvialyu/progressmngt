@@ -9,5 +9,7 @@ class User < ApplicationRecord
   end
 
 has_many :tasks
+has_many :courses
+
 
 end
