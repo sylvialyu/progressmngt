@@ -1,4 +1,4 @@
-<h1>Tasks - <%= @course.title %></h1>
+<h1><%= render_user_name(@course.user_id) %>'s Tasks - <%= @course.title %></h1>
 
 <div class="pull-right" style="padding-bottom: 20px;">
   <%= link_to("Create a New Task", new_admin_course_task_path(@course), class: "btn btn-primary btn-sm")%>
@@ -7,8 +7,6 @@
 <table class="table table-bordered">
   <thead>
     <tr>
-      <th>User ID</th>
-      <th>Course ID</th>
       <th>Content</th>
       <th>Completed?</th>
       <th>Options</th>
@@ -17,8 +15,6 @@
   <tbody>
     <% @tasks.each do |task| %>
       <tr>
-        <td><%= task.user_id %></td>
-        <td><%= task.course_id %></td>
         <td><%= task.content %></td>
         <td>
           <% if task.completed? %>
