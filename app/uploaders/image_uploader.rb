@@ -24,6 +24,10 @@ class ImageUploader < CarrierWave::Uploader::Base
     process resize_to_fill: [125, 175]
   end
 
+  version :min do
+    process resize_to_fill: [42, 58]
+  end
+
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url(*args)

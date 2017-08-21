@@ -5,7 +5,7 @@ class Admin::TasksController < ApplicationController
 
   def index
     @course = Course.find(params[:course_id])
-    @tasks = Task.all
+    @tasks = @course.tasks
   end
 
   def new
