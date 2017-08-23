@@ -1,9 +1,14 @@
 <div class="group">
   <%= f.input :user_id, label: "User ID", class: "form-control" %>
-</div>
-
-<div class="group">
-  <label> User Name - </label>
+  <p class="helping-block">
+    1 - Sylvia (admin)<br>
+    2 - Dani<br>
+    3 - Lisa<br>
+    4 - Diana<br>
+    5 - Henry<br>
+    6 - Roger<br>
+    7 - Gerardo<br>
+  </p>
 </div>
 
 <div class="group">
@@ -29,10 +34,10 @@
     <% @tasks.each do |task| %>
       <tr>
         <td><%= task.content %></td>
-        <td><%= task.completed %></td>
+        <td><%= render_task_complete(task) %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= f.submit "Submit", data: {disable_with: "Submitting"} %>
+<%= f.submit "Submit", data: {disable_with: "Submitting"}, class: "btn btn-primary" %>

@@ -16,13 +16,7 @@
     <% @tasks.each do |task| %>
       <tr>
         <td><%= task.content %></td>
-        <td>
-          <% if task.completed? %>
-            <p>Yes</p>
-          <% else %>
-            <p>No</p>
-          <% end %>
-        </td>
+        <td><%= render_task_complete(task) %></td>
         <td>
           <%= link_to("Edit", edit_admin_course_task_path(@course, task), class: "btn btn-primary btn-xs") %>
           <%= link_to("Delete", admin_course_task_path(@course, task), method: :delete, class: "btn btn-danger btn-xs", data: {confirm: "Are you sure?"}) %>
@@ -31,3 +25,7 @@
     <% end %>
   </tbody>
 </table>
+
+<div class="text-center">
+  <%= link_to("返回课程主页", admin_user_path(@course.user), class: "btn btn-info") %>
+</div>

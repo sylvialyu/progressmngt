@@ -3,3 +3,35 @@
 <div class="pull-right" style="margin-bottom: 20px;">
   <%= link_to("新增课程", new_admin_course_path, class: "btn btn-sm btn-primary") %>
 </div>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th width="150">首图</th>
+      <th>课程名称</th>
+      <th>具体内容</th>
+      <th colspan="2">操作</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @courses.each do |course| %>
+    <tr>
+      <td>
+        <%= link_to edit_admin_course_path(course) do %>
+          <% if course.image.present? %>
+            <%= image_tag(course.image.min.url) %>
+          <% else %>
+            <%= image_tag("http://placehold.it/80x80&text=No Pic") %>
+          <% end %>
+        <% end %>
+      </td>
+      <td><%= link_to(course.title, course_path(course)) %></td>
+      <td><%= link_to("内容设置", admin_course_tasks_path(course), class: "btn btn-sm btn-info") %></td>
+      <td>
+        <%= link_to("Edit", edit_admin_course_path(course), class: "btn btn-sm btn-warning") %>
+        <%= link_to("Delete", admin_course_path(course), method: :delete, class: "btn btn-sm btn-danger", data: {confirm: "Are you sure?"}) %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
