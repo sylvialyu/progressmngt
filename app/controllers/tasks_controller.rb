@@ -3,8 +3,8 @@ class TasksController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @course = Course.find(params[:course_id])
-    @tasks = Task.all
+    @course = Course.find_by_friendly_id!(params[:course_id])
+    @tasks = @course.tasks
   end
 
   def new

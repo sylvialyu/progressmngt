@@ -6,7 +6,7 @@ class CoursesController < ApplicationController
   end
 
   def show
-    @course = current_user.courses.find(params[:id])
+    @course = current_user.courses.find_by_friendly_id!(params[:id])
     @tasks = @course.tasks
   end
 

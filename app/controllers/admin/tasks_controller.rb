@@ -4,17 +4,17 @@ class Admin::TasksController < ApplicationController
   layout "admin"
 
   def index
-    @course = Course.find(params[:course_id])
+    @course = Course.find_by_friendly_id!(params[:course_id])
     @tasks = @course.tasks
   end
 
   def new
-    @course = Course.find(params[:course_id])
+    @course = Course.find_by_friendly_id!(params[:course_id])
     @task = Task.new
   end
 
   def create
-    @course = Course.find(params[:course_id])
+    @course = Course.find_by_friendly_id!(params[:course_id])
     @task = Task.new(task_params)
     @task.course = @course
     @task.user = current_user
@@ -27,12 +27,12 @@ class Admin::TasksController < ApplicationController
   end
 
   def edit
-    @course = Course.find(params[:course_id])
+    @course = Course.find_by_friendly_id!(params[:course_id])
     @task = Task.find(params[:id])
   end
 
   def update
-    @course = Course.find(params[:course_id])
+    @course = Course.find_by_friendly_id!(params[:course_id])
     @task = Task.find(params[:id])
     @task.course = @course
     @task.user = current_user
@@ -45,7 +45,7 @@ class Admin::TasksController < ApplicationController
   end
 
   def destroy
-    @course = Course.find(params[:course_id])
+    @course = Course.find_by_friendly_id!(params[:course_id])
     @task = Task.find(params[:id])
     @task.destroy
     redirect_to admin_course_tasks_path

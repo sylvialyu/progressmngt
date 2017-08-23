@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170819104056) do
+ActiveRecord::Schema.define(version: 20170823041644) do
 
   create_table "completes", force: :cascade do |t|
     t.integer  "user_id"
@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(version: 20170819104056) do
     t.datetime "updated_at",  null: false
     t.string   "image"
     t.integer  "user_id"
+    t.string   "friendly_id"
+    t.index ["friendly_id"], name: "index_courses_on_friendly_id", unique: true
   end
 
   create_table "task_relationships", force: :cascade do |t|

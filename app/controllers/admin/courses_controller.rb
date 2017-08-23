@@ -25,12 +25,12 @@ class Admin::CoursesController < ApplicationController
   end
 
   def edit
-    @course = Course.find(params[:id])
+    @course = Course.find_by_friendly_id!(params[:id])
     @tasks = @course.tasks
   end
 
   def update
-    @course = Course.find(params[:id])
+    @course = Course.find_by_friendly_id(params[:id])
     @course.user = current_user
     @tasks = @course.tasks
 
@@ -42,7 +42,7 @@ class Admin::CoursesController < ApplicationController
   end
 
   def destroy
-    @course = Course.find(params[:id])
+    @course = Course.find_by_friendly_id(params[:id])
     @course.destroy
     redirect_to admin_user_path(@course.user), alert: "Course deleted!"
   end
@@ -50,7 +50,7 @@ class Admin::CoursesController < ApplicationController
   private
 
   def course_params
-    params.require(:course).permit(:title, :description, :image, :user_id)
+    params.require(:course).permit(:title, :description, :image, :user_id, :friendly_id)
   end
 
 end
