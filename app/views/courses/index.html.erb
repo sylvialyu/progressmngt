@@ -1,4 +1,4 @@
-<div class="col-centered col-md-10">
+<!-- <div class="col-centered col-md-10">
 
   <h2 class="text-center">My Courses</h2>
 
@@ -19,4 +19,56 @@
     <% end %>
   </div>
 
+</div> -->
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="dashboard-content">
+
+      <!-- 左侧课程部分 -->
+      <div class="col-md-11 col-centered">
+        <div class="course-content">
+
+          <!-- 课程header 部分 -->
+          <div class="dashboard-header col-xs-12">
+            <h3 class="text-center">My Courses</h3>
+            <hr>
+          </div>
+
+          <!-- 课程内容部分 -->
+          <div class="all-course">
+            <div class="row">
+              <% @courses.each do |course| %>
+                <div class="col-md-4 col-xs-12">
+                  <%= link_to course_path(course) do %>
+
+                    <div class="level-card">
+                      <div class="title-cover"></div>
+                      <div class="start-btn">
+                        <span>ENTER</span>
+                      </div>
+                      <div class="title">
+                        <h4><%= course.title %></h4>
+                      </div>
+                      <div class="course-img">
+                        <% if course.image.present? %>
+                          <%= image_tag(course.image.thumb.url) %>
+                        <% else %>
+                          <%= image_tag("http://placehold.it/200x200&text=No Pic") %>
+                        <% end %>
+                      </div>
+                    </div>
+
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+    </div>
+  </div>
 </div>
