@@ -1,5 +1,7 @@
 # README
 
+Copyright © 2017-2020 Sylvia Lyu All Rights Reserved.
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
