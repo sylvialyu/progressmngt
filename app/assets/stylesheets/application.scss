@@ -97,6 +97,8 @@ flex-direction: column;
 
  .navbar-default .navbar-nav > li > a {
      color: #FFF;
+     font-family: "Open Sans";
+     font-size: 1.2em;
  }
 
  .navbar-default .navbar-nav > li > a:hover,
@@ -115,7 +117,7 @@ flex-direction: column;
  .navbar-default .navbar-nav > .open > a,
  .navbar-default .navbar-nav > .open > a:focus,
  .navbar-default .navbar-nav > .open > a:hover {
-     color: #212121;
+     color: #FECB2F;
      background-color: transparent;
  }
 
@@ -130,6 +132,7 @@ flex-direction: column;
   margin-top: 1px;
   font-size: 16px;
 }
+
 
 //---------Footer---------
 

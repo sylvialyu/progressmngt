@@ -1,14 +1,22 @@
-<div class="col-md-10 col-centered">
+<div class="col-md-11 col-centered">
 
-  <h2 class="text-center">我的学生</h2>
+  <div class="dashboard-content">
+    <div class="course-content">
 
-  <div style="margin-top: 80px;">
-    <div class="row">
-      <% @users.each do |user| %>
-        <div class="col-md-4">
-          <%= link_to(user.display_name, admin_user_path(user), class: "btn btn-lg btn-info", style: "margin-bottom: 30px; width: 120px;") %>
+      <h2 class="text-center">我的学生</h2>
+
+      <hr>
+
+      <div class="user-btn-group">
+        <div class="row">
+          <% @users.each do |user| %>
+            <div class="col-md-4">
+              <%= link_to(user.display_name, admin_user_path(user), class: "btn btn-lg btn-info user-btn") %>
+            </div>
+            <% end %>
         </div>
-        <% end %>
+      </div>
+
     </div>
   </div>
 

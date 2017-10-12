@@ -44,7 +44,7 @@ class Admin::CoursesController < ApplicationController
   def destroy
     @course = Course.find_by_friendly_id(params[:id])
     @course.destroy
-    redirect_to admin_user_path(@course.user), alert: "Course deleted!"
+    redirect_to admin_courses_path, alert: "Course deleted!"
   end
 
   private
