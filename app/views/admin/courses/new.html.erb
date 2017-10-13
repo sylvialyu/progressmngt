@@ -1,9 +1,21 @@
-<h2>New Course</h2>
+<div class="col-md-11 col-centered">
 
-<%= simple_form_for [:admin, @course] do |f| %>
+  <div class="dashboard-content">
+    <div class="course-content">
 
-<%= render :partial => "form", :locals => { :f => f } %>
+      <h2>New Course</h2>
 
-<% end %>
+      <hr>
 
-<%= link_to("取消", admin_users_path, class: "btn btn-default", style: "margin-top: 20px;") %>
+      <%= simple_form_for [:admin, @course] do |f| %>
+
+      <%= render :partial => "form", :locals => { :f => f } %>
+
+      <% end %>
+
+      <%= link_to("取消", admin_users_path, class: "btn btn-default", style: "margin-top: 20px;") %>
+
+    </div>
+  </div>
+
+</div>

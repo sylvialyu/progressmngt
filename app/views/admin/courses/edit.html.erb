@@ -1,17 +1,29 @@
-<h2 class="text-center">Edit Course</h2>
+<div class="col-md-11 col-centered">
 
-<%= simple_form_for [:admin, @course] do |f| %>
+  <div class="dashboard-content">
+    <div class="course-content">
 
-<% if @course.image.present? %>
-  <b>目前课程图片</b><br>
-  <%= image_tag(@course.image.small.url) %>
-<% end %>
+      <h2 class="text-center">Edit Course</h2>
+
+      <hr>
+
+      <%= simple_form_for [:admin, @course] do |f| %>
+
+      <% if @course.image.present? %>
+        <b>目前课程图片</b><br>
+        <%= image_tag(@course.image.small.url) %>
+      <% end %>
 
 
-<%= render :partial => "form", :locals => { :f => f } %>
+      <%= render :partial => "form", :locals => { :f => f } %>
 
 
-<% end %>
+      <% end %>
 
-<%= link_to("内容设置", admin_course_tasks_path(@course), class: "btn btn-warning", style: "margin-top: 20px;") %>
-<%= link_to("取消", admin_user_path(@course.user), class: "btn btn-default", style: "margin-top: 20px;") %>
+      <%= link_to("内容设置", admin_course_tasks_path(@course), class: "btn btn-warning", style: "margin-top: 20px; margin-right: 20px;") %>
+      <%= link_to("取消", admin_user_path(@course.user), class: "btn btn-default", style: "margin-top: 20px;") %>
+
+    </div>
+  </div>
+
+</div>

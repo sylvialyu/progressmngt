@@ -1,4 +1,4 @@
-<div class="group">
+<div class="group" style="margin-top: 50px;">
   <%= f.input :content, class: "form-control" %>
 </div>
 
@@ -6,4 +6,6 @@
   <%= f.input :completed, class: "form-control" %>
 </div>
 
-<%= f.submit "Submit", data: {disable_with: "Submitting"} %>
+<div class="text-center" style="margin-top: 40px;">
+  <%= f.submit "Submit", data: {disable_with: "Submitting"}, class: "btn btn-primary" %>
+</div>

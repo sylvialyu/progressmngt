@@ -1,44 +1,52 @@
-<div class="col-centered col-md-12">
-  <h2 class="text-center">课程总表</h2>
+<div class="col-md-11 col-centered">
 
-  <div class="pull-right" style="margin-bottom: 20px;">
-    <%= link_to("新增课程", new_admin_course_path, class: "btn btn-sm btn-primary") %>
+  <div class="dashboard-content">
+    <div class="course-content">
+
+      <h2 class="text-center">课程总表</h2>
+
+      <div class="pull-right" style="margin-bottom: 20px;">
+        <%= link_to("新增课程", new_admin_course_path, class: "btn btn-sm btn-primary") %>
+      </div>
+
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <td>User ID</td>
+            <td>User Name</td>
+            <td width="150">首图</td>
+            <td>课程名称</td>
+            <td>具体内容</td>
+            <td colspan="2">操作</td>
+          </tr>
+        </thead>
+        <tbody>
+          <% @courses.each do |course| %>
+            <tr>
+              <td><%= course.user_id %></td>
+              <td><%= course.user.display_name %></td>
+              <td>
+                <%= link_to edit_admin_course_path(course) do %>
+                  <% if course.image.present? %>
+                    <%= image_tag(course.image.min.url) %>
+                  <% else %>
+                    <%= image_tag("http://placehold.it/80x80&text=No Pic") %>
+                  <% end %>
+                <% end %>
+              </td>
+              <td><%= link_to(course.title, course_path(course)) %></td>
+              <td><%= link_to("内容设置", admin_course_tasks_path(course), class: "btn btn-sm btn-info") %></td>
+              <td>
+                <%= link_to("Edit", edit_admin_course_path(course), class: "btn btn-sm btn-warning") %>
+                <%= link_to("Delete", admin_course_path(course), method: :delete, class: "btn btn-sm btn-danger", data: {confirm: "Are you sure?"}) %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+
+    </div>
   </div>
-
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <td>User ID</td>
-        <td>User Name</td>
-        <td width="150">首图</td>
-        <td>课程名称</td>
-        <td>具体内容</td>
-        <td colspan="2">操作</td>
-      </tr>
-    </thead>
-    <tbody>
-      <% @courses.each do |course| %>
-        <tr>
-          <td><%= course.user_id %></td>
-          <td><%= course.user.display_name %></td>
-          <td>
-            <%= link_to edit_admin_course_path(course) do %>
-              <% if course.image.present? %>
-                <%= image_tag(course.image.min.url) %>
-              <% else %>
-                <%= image_tag("http://placehold.it/80x80&text=No Pic") %>
-              <% end %>
-            <% end %>
-          </td>
-          <td><%= link_to(course.title, course_path(course)) %></td>
-          <td><%= link_to("内容设置", admin_course_tasks_path(course), class: "btn btn-sm btn-info") %></td>
-          <td>
-            <%= link_to("Edit", edit_admin_course_path(course), class: "btn btn-sm btn-warning") %>
-            <%= link_to("Delete", admin_course_path(course), method: :delete, class: "btn btn-sm btn-danger", data: {confirm: "Are you sure?"}) %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
 
 </div>

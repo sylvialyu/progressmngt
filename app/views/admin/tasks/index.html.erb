@@ -1,31 +1,41 @@
-<h1><%= @course.user.display_name %>'s Tasks - <%= @course.title %></h1>
+<div class="col-md-11 col-centered">
 
-<div class="pull-right" style="padding-bottom: 20px;">
-  <%= link_to("Create a New Task", new_admin_course_task_path(@course), class: "btn btn-primary btn-sm")%>
-</div>
+  <div class="dashboard-content">
+    <div class="course-content">
 
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Content</th>
-      <th>Completed?</th>
-      <th>Options</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @tasks.each do |task| %>
-      <tr>
-        <td><%= task.content %></td>
-        <td><%= render_task_complete(task) %></td>
-        <td>
-          <%= link_to("Edit", edit_admin_course_task_path(@course, task), class: "btn btn-primary btn-xs") %>
-          <%= link_to("Delete", admin_course_task_path(@course, task), method: :delete, class: "btn btn-danger btn-xs", data: {confirm: "Are you sure?"}) %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <h1><%= @course.user.display_name %>'s Tasks - <%= @course.title %></h1>
 
-<div class="text-center">
-  <%= link_to("返回课程主页", admin_user_path(@course.user), class: "btn btn-info") %>
+      <div class="pull-right" style="padding-bottom: 20px;">
+        <%= link_to("Create a New Task", new_admin_course_task_path(@course), class: "btn btn-primary btn-sm")%>
+      </div>
+
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Content</th>
+            <th>Completed?</th>
+            <th>Options</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @tasks.each do |task| %>
+            <tr>
+              <td><%= task.content %></td>
+              <td><%= render_task_complete(task) %></td>
+              <td>
+                <%= link_to("Edit", edit_admin_course_task_path(@course, task), class: "btn btn-primary btn-xs") %>
+                <%= link_to("Delete", admin_course_task_path(@course, task), method: :delete, class: "btn btn-danger btn-xs", data: {confirm: "Are you sure?"}) %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+      <div class="text-center">
+        <%= link_to("返回课程主页", admin_user_path(@course.user), class: "btn btn-info") %>
+      </div>
+
+    </div>
+  </div>
+
 </div>
